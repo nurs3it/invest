@@ -5,7 +5,9 @@ import {
   CardTitle,
   CardContent,
   Button,
+  Marquee,
 } from '@shared/ui';
+import { cn } from '@shared/lib/utils';
 import {
   Sparkles,
   Rocket,
@@ -101,26 +103,128 @@ export function HomePage() {
   const testimonials = [
     {
       name: 'Алексей Петров',
+      username: '@alex_petrov',
       role: 'Инвестор',
       content:
         'Отличная платформа! Удобный интерфейс и все необходимые инструменты для управления инвестициями.',
       rating: 5,
+      img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alexey',
     },
     {
       name: 'Мария Иванова',
+      username: '@maria_ivanova',
       role: 'Трейдер',
       content:
         'Использую уже полгода. Очень довольна аналитикой и скоростью выполнения операций.',
       rating: 5,
+      img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Maria',
     },
     {
       name: 'Дмитрий Сидоров',
+      username: '@dmitry_sidorov',
       role: 'Предприниматель',
       content:
         'Помогла диверсифицировать портфель и увеличить доходность. Рекомендую!',
       rating: 5,
+      img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Dmitry',
+    },
+    {
+      name: 'Елена Козлова',
+      username: '@elena_kozlova',
+      role: 'Финансовый аналитик',
+      content:
+        'Профессиональные инструменты для анализа рынка. Платформа превзошла все ожидания!',
+      rating: 5,
+      img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Elena',
+    },
+    {
+      name: 'Иван Смирнов',
+      username: '@ivan_smirnov',
+      role: 'Инвестор',
+      content:
+        'Безопасность на высшем уровне. Чувствую себя уверенно, доверяя свои средства этой платформе.',
+      rating: 5,
+      img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ivan',
+    },
+    {
+      name: 'Ольга Новикова',
+      username: '@olga_novikova',
+      role: 'Трейдер',
+      content:
+        'Отличная поддержка клиентов и быстрая реакция на запросы. Очень довольна сервисом!',
+      rating: 5,
+      img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Olga',
+    },
+    {
+      name: 'Сергей Волков',
+      username: '@sergey_volkov',
+      role: 'Предприниматель',
+      content:
+        'Интуитивно понятный интерфейс. Начал использовать сразу без обучения. Отлично!',
+      rating: 5,
+      img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sergey',
+    },
+    {
+      name: 'Анна Морозова',
+      username: '@anna_morozova',
+      role: 'Инвестор',
+      content:
+        'Регулярные обновления и новые функции. Платформа постоянно развивается. Супер!',
+      rating: 5,
+      img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Anna',
     },
   ];
+
+  const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 2));
+  const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));
+
+  const ReviewCard = ({
+    img,
+    name,
+    username,
+    body,
+    rating,
+  }: {
+    img: string;
+    name: string;
+    username: string;
+    body: string;
+    rating: number;
+  }) => {
+    return (
+      <figure
+        className={cn(
+          'relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4',
+          'border-border bg-card hover:bg-accent/50 transition-colors'
+        )}
+      >
+        <div className="flex flex-row items-center gap-2 mb-3">
+          <img
+            className="rounded-full"
+            width="32"
+            height="32"
+            alt={name}
+            src={img}
+          />
+          <div className="flex flex-col">
+            <figcaption className="text-sm font-medium">{name}</figcaption>
+            <p className="text-xs text-muted-foreground">{username}</p>
+          </div>
+        </div>
+        <div className="flex gap-1 mb-2">
+          {[...Array(rating)].map((_, i) => (
+            <Star
+              key={i}
+              className="h-3 w-3 fill-primary text-primary"
+            />
+          ))}
+        </div>
+        <blockquote className="text-sm text-muted-foreground leading-relaxed">
+          "{body}"
+        </blockquote>
+      </figure>
+    );
+  };
 
   return (
     <div className="min-h-[calc(100vh-4rem)]">
@@ -286,33 +390,33 @@ export function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <Card
-                key={index}
-                className="border-2 hover:border-primary/50 transition-all hover:shadow-lg"
-              >
-                <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-4 w-4 fill-primary text-primary"
-                      />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    "{testimonial.content}"
-                  </p>
-                  <div>
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">
-                      {testimonial.role}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg">
+            <Marquee pauseOnHover className="[--duration:20s]">
+              {firstRow.map((review) => (
+                <ReviewCard
+                  key={review.username}
+                  img={review.img}
+                  name={review.name}
+                  username={review.username}
+                  body={review.content}
+                  rating={review.rating}
+                />
+              ))}
+            </Marquee>
+            <Marquee reverse pauseOnHover className="[--duration:20s]">
+              {secondRow.map((review) => (
+                <ReviewCard
+                  key={review.username}
+                  img={review.img}
+                  name={review.name}
+                  username={review.username}
+                  body={review.content}
+                  rating={review.rating}
+                />
+              ))}
+            </Marquee>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background to-transparent z-10" />
           </div>
         </div>
       </section>

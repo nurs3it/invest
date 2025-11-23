@@ -59,6 +59,10 @@ export default {
   				'var(--font-sans)'
   			]
   		},
+  		animation: {
+  			marquee: 'marquee var(--duration) infinite linear',
+  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+  		},
   	}
   },
   plugins: [require("tailwindcss-animate")],

@@ -5,4 +5,5 @@ export { Input } from './input';
 export { PhoneInput } from './phone-input';
 export { Label } from './label';
 export { Tabs, TabsList, TabsTrigger, TabsContent } from './tabs';
+export { Marquee } from './marquee';
 
