@@ -265,66 +265,173 @@ export function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <Card
-                key={index}
-                className="text-center border-2 hover:border-primary/50 transition-all hover:shadow-lg group"
-              >
-                <CardContent className="pt-6">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <Icon className="h-6 w-6 text-primary" />
+      <section className="relative py-12 sm:py-16 md:py-24 overflow-hidden">
+        {/* Animated Background Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  key={index}
+                  className="group relative"
+                >
+                  {/* Glow Effect */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 rounded-3xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Card */}
+                  <div className="relative h-full rounded-3xl border-2 border-border/50 bg-card/80 backdrop-blur-sm p-6 sm:p-8 transition-all duration-500 group-hover:border-primary/50 group-hover:shadow-2xl group-hover:shadow-primary/20 group-hover:-translate-y-1">
+                    {/* Background Gradient on Hover */}
+                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/10 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <div className="relative z-10 text-center">
+                      {/* Icon Container */}
+                      <div className="flex justify-center mb-6">
+                        <div className="relative">
+                          {/* Outer Glow Ring */}
+                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/40 to-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          
+                          {/* Icon Background */}
+                          <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 flex items-center justify-center border border-primary/20 group-hover:border-primary/40 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                            <Icon className="h-8 w-8 sm:h-10 sm:w-10 text-primary group-hover:scale-110 transition-transform duration-300" />
+                            
+                            {/* Decorative Dots */}
+                            <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity animate-ping" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Stat Value */}
+                      <div className="mb-3">
+                        <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-br from-foreground via-foreground/90 to-primary bg-clip-text text-transparent group-hover:from-primary group-hover:via-primary/90 group-hover:to-primary/70 transition-all duration-500">
+                          {stat.value}
+                        </div>
+                      </div>
+
+                      {/* Stat Label */}
+                      <div className="text-xs sm:text-sm md:text-base text-muted-foreground font-medium leading-tight group-hover:text-foreground/80 transition-colors">
+                        {stat.label}
+                      </div>
+
+                      {/* Decorative Line */}
+                      <div className="mt-4 mx-auto w-12 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
+
+                    {/* Animated Border */}
+                    <div className="absolute inset-0 rounded-3xl border-2 border-primary/0 group-hover:border-primary/20 transition-colors duration-500 pointer-events-none" />
                   </div>
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">{stat.label}</div>
-                </CardContent>
-              </Card>
-            );
-          })}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Bottom Decorative Text */}
+          <div className="mt-12 text-center">
+            <p className="text-sm text-muted-foreground">
+              Доверяют тысячи инвесторов по всему миру
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-12 sm:py-16 md:py-24 bg-muted/30">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
+      <section className="relative py-12 sm:py-16 md:py-24 bg-muted/30 overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-background/50 backdrop-blur-sm mb-4">
+              <Sparkles className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium">Преимущества</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
               Почему выбирают нас
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Всё необходимое для успешного управления инвестициями в одном месте
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {/* Creative Grid Layout */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
+              const isLarge = index === 0 || index === 3; // First and fourth cards are larger
+              
               return (
-                <Card
+                <div
                   key={index}
-                  className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/50"
+                  className={cn(
+                    "group relative",
+                    isLarge && "sm:col-span-2 lg:col-span-1"
+                  )}
                 >
-                  <CardHeader>
-                    <div className="mb-4">
-                      <div className="p-3 rounded-lg bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
-                        <Icon className="h-6 w-6 text-primary" />
+                  {/* Glow Effect */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Card */}
+                  <div className="relative h-full rounded-2xl border-2 border-border/50 bg-card/50 backdrop-blur-sm p-6 sm:p-8 transition-all duration-500 group-hover:border-primary/50 group-hover:shadow-2xl group-hover:shadow-primary/10 group-hover:-translate-y-2">
+                    {/* Background Gradient on Hover */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <div className="relative z-10">
+                      {/* Icon Container */}
+                      <div className="mb-6 relative">
+                        {/* Icon Background with Gradient */}
+                        <div className="relative inline-flex">
+                          {/* Outer Glow Ring */}
+                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/30 to-primary/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          
+                          {/* Icon Container */}
+                          <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 flex items-center justify-center border border-primary/20 group-hover:border-primary/40 transition-all duration-300 group-hover:scale-110">
+                            <Icon className="h-8 w-8 sm:h-10 sm:w-10 text-primary group-hover:scale-110 transition-transform duration-300" />
+                            
+                            {/* Decorative Corner Elements */}
+                            <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-primary/30 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-primary/30 rounded-br-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </div>
+                        </div>
                       </div>
+
+                      {/* Content */}
+                      <div className="space-y-3">
+                        <h3 className="text-xl sm:text-2xl font-bold group-hover:text-primary transition-colors duration-300">
+                          {feature.title}
+                        </h3>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors">
+                          {feature.description}
+                        </p>
+                      </div>
+
+                      {/* Decorative Line */}
+                      <div className="mt-6 w-12 h-0.5 bg-gradient-to-r from-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <CardTitle className="text-lg sm:text-xl">{feature.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </CardContent>
-                </Card>
+
+                    {/* Animated Border on Hover */}
+                    <div className="absolute inset-0 rounded-2xl border-2 border-primary/0 group-hover:border-primary/20 transition-colors duration-500 pointer-events-none" />
+                  </div>
+                </div>
               );
             })}
+          </div>
+
+          {/* Bottom Decorative Element */}
+          <div className="mt-16 text-center">
+            <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="w-8 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+              <span>И многое другое</span>
+              <div className="w-8 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+            </div>
           </div>
         </div>
       </section>
@@ -341,39 +448,102 @@ export function HomePage() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <div key={index} className="relative">
-                  <Card className="h-full border-2 hover:border-primary/50 transition-all hover:shadow-lg group">
-                    <CardContent className="pt-6">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0">
-                          <div className="w-12 h-12 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center">
-                            <span className="text-sm font-bold text-primary">
-                              {step.number}
-                            </span>
-                          </div>
+          {/* Stepper */}
+          <div className="relative">
+            {/* Horizontal Stepper for Desktop */}
+            <div className="hidden lg:flex items-start justify-between relative">
+              {/* Connecting Line */}
+              <div className="absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" />
+              
+              {steps.map((step, index) => {
+                const Icon = step.icon;
+                const isLast = index === steps.length - 1;
+                return (
+                  <div key={index} className="flex-1 flex flex-col items-center relative z-10 group">
+                    {/* Step Circle */}
+                    <div className="relative mb-6">
+                      {/* Outer Glow Ring */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      {/* Main Circle */}
+                      <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-primary via-primary/90 to-primary/70 flex items-center justify-center shadow-lg border-4 border-background group-hover:scale-110 transition-all duration-300">
+                        {/* Inner Circle with Icon */}
+                        <div className="absolute inset-2 rounded-full bg-background flex items-center justify-center">
+                          <Icon className="h-8 w-8 text-primary group-hover:scale-125 transition-transform duration-300" />
                         </div>
-                        <div className="flex-1">
-                          <div className="mb-2">
-                            <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-primary mb-2" />
-                            <h3 className="text-base sm:text-lg font-semibold">{step.title}</h3>
-                          </div>
-                          <p className="text-xs sm:text-sm text-muted-foreground">
-                            {step.description}
-                          </p>
+                        
+                        {/* Step Number Badge */}
+                        <div className="absolute -top-2 -right-2 w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md border-2 border-background">
+                          <span className="text-sm font-bold text-background">{step.number}</span>
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                  {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-border transform -translate-y-1/2 z-0" />
-                  )}
-                </div>
-              );
-            })}
+                    </div>
+
+                    {/* Step Content */}
+                    <div className="text-center max-w-[200px]">
+                      <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+
+                    {/* Animated Arrow (except for last step) */}
+                    {!isLast && (
+                      <div className="absolute top-16 left-full w-1/2 h-0.5 flex items-center justify-end -translate-x-1/2 z-0">
+                        <div className="w-0 h-0 border-t-4 border-b-4 border-l-8 border-l-primary/40 border-t-transparent border-b-transparent group-hover:border-l-primary transition-colors" />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Vertical Stepper for Mobile/Tablet */}
+            <div className="lg:hidden space-y-8">
+              {steps.map((step, index) => {
+                const Icon = step.icon;
+                const isLast = index === steps.length - 1;
+                return (
+                  <div key={index} className="relative flex gap-6 group">
+                    {/* Vertical Line */}
+                    {!isLast && (
+                      <div className="absolute left-8 top-24 bottom-0 w-0.5 bg-gradient-to-b from-primary/20 to-primary/40" />
+                    )}
+
+                    {/* Step Circle */}
+                    <div className="relative flex-shrink-0">
+                      {/* Outer Glow Ring */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      {/* Main Circle */}
+                      <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-primary via-primary/90 to-primary/70 flex items-center justify-center shadow-lg border-4 border-background group-hover:scale-110 transition-all duration-300">
+                        {/* Inner Circle with Icon */}
+                        <div className="absolute inset-1.5 rounded-full bg-background flex items-center justify-center">
+                          <Icon className="h-5 w-5 text-primary group-hover:scale-125 transition-transform duration-300" />
+                        </div>
+                        
+                        {/* Step Number Badge */}
+                        <div className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md border-2 border-background">
+                          <span className="text-xs font-bold text-background">{step.number}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Step Content */}
+                    <div className="flex-1 pt-1">
+                      <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
