@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useAppSelector } from '@app/store/hooks';
 import { selectCurrentUser } from '@entities/user';
 import {
@@ -8,12 +7,9 @@ import {
   CardContent,
   CardDescription,
 } from '@shared/ui';
-import { Header } from '@widgets/header';
-import { Sidebar } from '@widgets/sidebar';
 import { TrendingUp, Wallet, Users, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 
 export function DashboardPage() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
   const currentUser = useAppSelector(selectCurrentUser);
 
   const stats = [
@@ -41,14 +37,7 @@ export function DashboardPage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} showMenuButton />
-
-      <div className="flex flex-1">
-        <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-
-        <main className="flex-1 overflow-auto">
-          <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8 space-y-6 sm:space-y-8">
+    <div className="space-y-6 sm:space-y-8">
             {/* Welcome Section */}
             <div className="space-y-1 sm:space-y-2">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -136,23 +125,20 @@ export function DashboardPage() {
                         <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
                           <TrendingUp className="h-5 w-5 text-primary" />
                         </div>
-                      <div>
-                        <p className="font-medium text-sm sm:text-base">Покупка акций</p>
-                        <p className="text-xs sm:text-sm md:text-base text-muted-foreground">2 часа назад</p>
+                        <div>
+                          <p className="font-medium text-sm sm:text-base">Покупка акций</p>
+                          <p className="text-xs sm:text-sm md:text-base text-muted-foreground">2 часа назад</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-sm sm:text-base md:text-lg">+$1,250</p>
-                      <p className="text-xs sm:text-sm md:text-base text-green-600">+2.5%</p>
-                    </div>
+                      <div className="text-right">
+                        <p className="font-semibold text-sm sm:text-base md:text-lg">+$1,250</p>
+                        <p className="text-xs sm:text-sm md:text-base text-green-600">+2.5%</p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </CardContent>
             </Card>
-          </div>
-        </main>
-      </div>
     </div>
   );
 }
