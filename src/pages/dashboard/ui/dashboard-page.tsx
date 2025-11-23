@@ -48,19 +48,19 @@ export function DashboardPage() {
         <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
         <main className="flex-1 overflow-auto">
-          <div className="container mx-auto px-4 py-8 space-y-8">
+          <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8 space-y-6 sm:space-y-8">
             {/* Welcome Section */}
-            <div className="space-y-2">
-              <h1 className="text-4xl md:text-5xl font-bold">
+            <div className="space-y-1 sm:space-y-2">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
                 Добро пожаловать{currentUser ? `, ${currentUser.name}` : ''}!
               </h1>
-              <p className="text-muted-foreground text-xl">
+              <p className="text-muted-foreground text-base sm:text-lg md:text-xl">
                 Ваш портфель растёт и приносит прибыль
               </p>
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
               {stats.map((stat) => {
                 const Icon = stat.icon;
                 return (
@@ -72,9 +72,9 @@ export function DashboardPage() {
                       <Icon className="h-6 w-6 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
-                      <div className="text-4xl font-bold">{stat.value}</div>
+                      <div className="text-2xl sm:text-3xl md:text-4xl font-bold">{stat.value}</div>
                       <div
-                        className={`flex items-center gap-1 text-base mt-2 ${
+                        className={`flex items-center gap-1 text-sm sm:text-base mt-2 ${
                           stat.trend === 'up' ? 'text-green-600' : 'text-red-600'
                         }`}
                       >
@@ -93,7 +93,7 @@ export function DashboardPage() {
             </div>
 
             {/* Charts Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
               <Card>
                 <CardHeader>
                   <CardTitle>Динамика портфеля</CardTitle>
@@ -137,13 +137,13 @@ export function DashboardPage() {
                           <TrendingUp className="h-5 w-5 text-primary" />
                         </div>
                       <div>
-                        <p className="font-medium text-base">Покупка акций</p>
-                        <p className="text-base text-muted-foreground">2 часа назад</p>
+                        <p className="font-medium text-sm sm:text-base">Покупка акций</p>
+                        <p className="text-xs sm:text-sm md:text-base text-muted-foreground">2 часа назад</p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="font-semibold text-lg">+$1,250</p>
-                      <p className="text-base text-green-600">+2.5%</p>
+                      <p className="font-semibold text-sm sm:text-base md:text-lg">+$1,250</p>
+                      <p className="text-xs sm:text-sm md:text-base text-green-600">+2.5%</p>
                     </div>
                     </div>
                   ))}

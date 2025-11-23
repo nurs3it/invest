@@ -84,33 +84,34 @@ export function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-md space-y-6">
+    <div className="min-h-screen flex items-center justify-center p-3 sm:p-4">
+      <div className="w-full max-w-md space-y-4 sm:space-y-6">
         {/* Back button */}
         <Link to="/">
-          <Button variant="ghost" size="sm" className="gap-2">
-            <ArrowLeft className="h-4 w-4" />
-            Назад на главную
+          <Button variant="ghost" size="sm" className="gap-2 text-xs sm:text-sm h-8 sm:h-9">
+            <ArrowLeft className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            <span className="hidden xs:inline">Назад на главную</span>
+            <span className="xs:hidden">Назад</span>
           </Button>
         </Link>
 
         {/* Login Card */}
         <Card>
-          <CardHeader className="space-y-4 text-center">
+          <CardHeader className="space-y-3 sm:space-y-4 text-center px-4 sm:px-6 pt-6 sm:pt-8">
             <div className="flex justify-center mb-2">
-              <div className="p-3 rounded-full bg-primary/10">
-                <LogIn className="h-8 w-8 text-primary" />
+              <div className="p-2.5 sm:p-3 rounded-full bg-primary/10">
+                <LogIn className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
               </div>
             </div>
 
-            <CardTitle className="text-3xl">Добро пожаловать</CardTitle>
+            <CardTitle className="text-2xl sm:text-3xl">Добро пожаловать</CardTitle>
 
-            <CardDescription className="text-base">
+            <CardDescription className="text-sm sm:text-base">
               Войдите в свой аккаунт для продолжения
             </CardDescription>
           </CardHeader>
 
-          <CardContent>
+          <CardContent className="px-4 sm:px-6 pb-6 sm:pb-8">
             <Tabs
               value={authMethod}
               onValueChange={(value) => {
@@ -120,17 +121,17 @@ export function LoginPage() {
               }}
               className="w-full"
             >
-              <TabsList className="grid w-full grid-cols-3 mb-6">
-                <TabsTrigger value="phone" className="gap-2">
-                  <Phone className="h-4 w-4" />
+              <TabsList className="grid w-full grid-cols-3 mb-4 sm:mb-6 h-9 sm:h-10">
+                <TabsTrigger value="phone" className="gap-1 sm:gap-2 text-xs sm:text-sm px-2 sm:px-3">
+                  <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   <span className="hidden sm:inline">Телефон</span>
                 </TabsTrigger>
-                <TabsTrigger value="email" className="gap-2">
-                  <Mail className="h-4 w-4" />
+                <TabsTrigger value="email" className="gap-1 sm:gap-2 text-xs sm:text-sm px-2 sm:px-3">
+                  <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   <span className="hidden sm:inline">Email</span>
                 </TabsTrigger>
-                <TabsTrigger value="ecp" className="gap-2">
-                  <Shield className="h-4 w-4" />
+                <TabsTrigger value="ecp" className="gap-1 sm:gap-2 text-xs sm:text-sm px-2 sm:px-3">
+                  <Shield className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   <span className="hidden sm:inline">ЭЦП</span>
                 </TabsTrigger>
               </TabsList>

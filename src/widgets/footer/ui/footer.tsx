@@ -5,14 +5,14 @@ import { Button } from '@shared/ui';
 export function Footer() {
   return (
     <footer className="border-t bg-background mt-auto">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <h3 className="text-2xl font-bold">Investment App</h3>
+              <h3 className="text-xl sm:text-2xl font-bold">Investment App</h3>
             </div>
-            <p className="text-base text-muted-foreground max-w-xs">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-xs">
               Современная платформа для управления инвестициями и финансового планирования
             </p>
             <div className="flex gap-3 pt-2">
@@ -49,7 +49,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Навигация</h4>
+            <h4 className="text-base sm:text-lg font-semibold">Навигация</h4>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -83,7 +83,7 @@ export function Footer() {
 
           {/* Support */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Поддержка</h4>
+            <h4 className="text-base sm:text-lg font-semibold">Поддержка</h4>
             <ul className="space-y-3">
               <li>
                 <a
@@ -117,8 +117,8 @@ export function Footer() {
 
           {/* Newsletter */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Подписка</h4>
-            <p className="text-base text-muted-foreground">
+            <h4 className="text-base sm:text-lg font-semibold">Подписка</h4>
+            <p className="text-sm sm:text-base text-muted-foreground">
               Получайте последние обновления и новости
             </p>
             <div className="space-y-2">

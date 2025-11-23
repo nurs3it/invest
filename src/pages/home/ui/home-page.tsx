@@ -194,7 +194,7 @@ export function HomePage() {
     return (
       <figure
         className={cn(
-          'relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4',
+          'relative h-full w-56 sm:w-64 cursor-pointer overflow-hidden rounded-xl border p-3 sm:p-4',
           'border-border bg-card hover:bg-accent/50 transition-colors'
         )}
       >
@@ -229,34 +229,34 @@ export function HomePage() {
   return (
     <div className="min-h-[calc(100vh-4rem)]">
       {/* Hero Section */}
-      <section className="relative container mx-auto px-4 py-20 md:py-32 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 -z-10" />
-        <div className="max-w-5xl mx-auto text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-background/50 backdrop-blur-sm mb-4">
-            <Sparkles className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium">Новое поколение инвестиций</span>
+        <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8 px-4 sm:px-6">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border bg-background/50 backdrop-blur-sm mb-2 sm:mb-4">
+            <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary" />
+            <span className="text-xs sm:text-sm font-medium">Новое поколение инвестиций</span>
           </div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent px-2">
             Управляйте инвестициями
-            <br />
+            <br className="hidden sm:block" />
             <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               с умом
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2">
             Современная платформа для управления инвестициями с мощной аналитикой,
             безопасностью и удобным интерфейсом
           </p>
-          <div className="flex flex-wrap gap-4 justify-center pt-6">
-            <Link to="/dashboard">
-              <Button size="lg" className="gap-2 text-base px-8 h-12 group">
-                <Rocket className="h-5 w-5 group-hover:translate-y-[-2px] transition-transform" />
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center pt-4 sm:pt-6 px-2">
+            <Link to="/dashboard" className="w-full sm:w-auto">
+              <Button size="lg" className="gap-2 text-sm sm:text-base px-6 sm:px-8 h-11 sm:h-12 w-full sm:w-auto group">
+                <Rocket className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-y-[-2px] transition-transform" />
                 Начать работу
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link to="/login">
-              <Button size="lg" variant="outline" className="gap-2 text-base px-8 h-12">
+            <Link to="/login" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="gap-2 text-sm sm:text-base px-6 sm:px-8 h-11 sm:h-12 w-full sm:w-auto">
                 Войти в аккаунт
               </Button>
             </Link>
@@ -265,8 +265,8 @@ export function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="container mx-auto px-4 py-16 md:py-24">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+      <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
@@ -280,8 +280,8 @@ export function HomePage() {
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                   </div>
-                  <div className="text-3xl md:text-4xl font-bold mb-2">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground leading-tight">{stat.label}</div>
                 </CardContent>
               </Card>
             );
@@ -290,18 +290,18 @@ export function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto px-4 py-16 md:py-24 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+      <section className="py-12 sm:py-16 md:py-24 bg-muted/30">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
               Почему выбирают нас
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
               Всё необходимое для успешного управления инвестициями в одном месте
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -315,7 +315,7 @@ export function HomePage() {
                         <Icon className="h-6 w-6 text-primary" />
                       </div>
                     </div>
-                    <CardTitle className="text-xl">{feature.title}</CardTitle>
+                    <CardTitle className="text-lg sm:text-xl">{feature.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground leading-relaxed">
@@ -330,18 +330,18 @@ export function HomePage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="container mx-auto px-4 py-16 md:py-24">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+      <section className="py-12 sm:py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
               Как это работает
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
               Начните инвестировать всего за 4 простых шага
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
@@ -358,10 +358,10 @@ export function HomePage() {
                         </div>
                         <div className="flex-1">
                           <div className="mb-2">
-                            <Icon className="h-5 w-5 text-primary mb-2" />
-                            <h3 className="text-lg font-semibold">{step.title}</h3>
+                            <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-primary mb-2" />
+                            <h3 className="text-base sm:text-lg font-semibold">{step.title}</h3>
                           </div>
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-xs sm:text-sm text-muted-foreground">
                             {step.description}
                           </p>
                         </div>
@@ -379,12 +379,12 @@ export function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="w-full py-16 md:py-24 bg-muted/30">
-        <div className="text-center mb-16 px-4">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+      <section className="w-full py-12 sm:py-16 md:py-24 bg-muted/30">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
             Что говорят наши клиенты
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Тысячи довольных пользователей уже используют нашу платформу
           </p>
         </div>
@@ -420,29 +420,29 @@ export function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="container mx-auto px-4 py-16 md:py-24">
+      <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
         <div className="max-w-4xl mx-auto">
           <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 via-background to-primary/5 relative overflow-hidden">
-            <CardContent className="pt-12 pb-12 px-8 md:px-16 text-center relative z-10">
-              <div className="mb-6">
-                <Award className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <CardContent className="pt-8 sm:pt-12 pb-8 sm:pb-12 px-4 sm:px-6 md:px-8 lg:px-16 text-center relative z-10">
+              <div className="mb-4 sm:mb-6">
+                <Award className="h-10 w-10 sm:h-12 sm:w-12 text-primary mx-auto mb-3 sm:mb-4" />
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                   Готовы начать инвестировать?
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8">
                   Присоединяйтесь к тысячам инвесторов, которые уже используют нашу
                   платформу для управления своими активами
                 </p>
               </div>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Link to="/login">
-                  <Button size="lg" className="gap-2 text-base px-8 h-12 group">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center">
+                <Link to="/login" className="w-full sm:w-auto">
+                  <Button size="lg" className="gap-2 text-sm sm:text-base px-6 sm:px-8 h-11 sm:h-12 w-full sm:w-auto group">
                     Создать аккаунт
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <Link to="/dashboard">
-                  <Button size="lg" variant="outline" className="gap-2 text-base px-8 h-12">
+                <Link to="/dashboard" className="w-full sm:w-auto">
+                  <Button size="lg" variant="outline" className="gap-2 text-sm sm:text-base px-6 sm:px-8 h-11 sm:h-12 w-full sm:w-auto">
                     Посмотреть демо
                   </Button>
                 </Link>
