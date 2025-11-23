@@ -379,45 +379,43 @@ export function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="container mx-auto px-4 py-16 md:py-24 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Что говорят наши клиенты
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Тысячи довольных пользователей уже используют нашу платформу
-            </p>
-          </div>
+      <section className="w-full py-16 md:py-24 bg-muted/30">
+        <div className="text-center mb-16 px-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Что говорят наши клиенты
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Тысячи довольных пользователей уже используют нашу платформу
+          </p>
+        </div>
 
-          <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg">
-            <Marquee pauseOnHover className="[--duration:20s]">
-              {firstRow.map((review) => (
-                <ReviewCard
-                  key={review.username}
-                  img={review.img}
-                  name={review.name}
-                  username={review.username}
-                  body={review.content}
-                  rating={review.rating}
-                />
-              ))}
-            </Marquee>
-            <Marquee reverse pauseOnHover className="[--duration:20s]">
-              {secondRow.map((review) => (
-                <ReviewCard
-                  key={review.username}
-                  img={review.img}
-                  name={review.name}
-                  username={review.username}
-                  body={review.content}
-                  rating={review.rating}
-                />
-              ))}
-            </Marquee>
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background to-transparent z-10" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background to-transparent z-10" />
-          </div>
+        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+          <Marquee pauseOnHover className="[--duration:20s]">
+            {firstRow.map((review) => (
+              <ReviewCard
+                key={review.username}
+                img={review.img}
+                name={review.name}
+                username={review.username}
+                body={review.content}
+                rating={review.rating}
+              />
+            ))}
+          </Marquee>
+          <Marquee reverse pauseOnHover className="[--duration:20s]">
+            {secondRow.map((review) => (
+              <ReviewCard
+                key={review.username}
+                img={review.img}
+                name={review.name}
+                username={review.username}
+                body={review.content}
+                rating={review.rating}
+              />
+            ))}
+          </Marquee>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background to-transparent z-10" />
         </div>
       </section>
 
